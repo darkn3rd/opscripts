@@ -69,10 +69,10 @@ REM ========== Query Events from DCs ================
   for /f "tokens=2 delims==, usebackq" %%a in (`dsquery server`) do ( 
     rem -- foreach server grab events and output to file
     for /f "tokens=1-4 delims=," %%b in ("%LOGTYPES%") do (
-      echo %EVENTQUERY% /s %%a /l %%b %TYPEFLTR% %DATEFLTR% %FORMAT% /V > %outfile%
-      echo %EVENTQUERY% /s %%a /l %%c %TYPEFLTR% %DATEFLTR% %FORMAT% /NH /V >> %outfile%
-      echo %EVENTQUERY% /s %%a /l %%d %TYPEFLTR% %DATEFLTR% %FORMAT% /NH /V >> %outfile%
-      echo %EVENTQUERY% /s %%a /l %%e %TYPEFLTR% %DATEFLTR% %FORMAT% /NH /V >> %outfile%
+      %EVENTQUERY% /s %%a /l %%b %TYPEFLTR% %DATEFLTR% %FORMAT% /V > %outfile%
+      %EVENTQUERY% /s %%a /l %%c %TYPEFLTR% %DATEFLTR% %FORMAT% /NH /V >> %outfile%
+      %EVENTQUERY% /s %%a /l %%d %TYPEFLTR% %DATEFLTR% %FORMAT% /NH /V >> %outfile%
+      %EVENTQUERY% /s %%a /l %%e %TYPEFLTR% %DATEFLTR% %FORMAT% /NH /V >> %outfile%
     )   
   )
 REM =================================================
