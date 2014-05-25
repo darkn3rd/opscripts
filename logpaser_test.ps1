@@ -10,3 +10,9 @@
 $objLogParser=New-Object -comobject MSUtil.LogQuery
 $objInputFormat=New-Object -comobject MSUtil.LogQuery.FileSystemInputFormat
 $objInputFormat.recurse=0
+
+$objOutputFormat=New-Object -comobject MSUtil.LogQuery.NativeOutputFormat
+$objOutputFormat.rtp=-1
+
+$strQuery="SELECT Name, Size FROM C:\Windows\System32\*.exe WHERE SIZE > 300000 ORDER BY Size DESC"
+$objLogParser.ExecuteBatch($strQuery, $objInputFormat, $objOutputFormat)
