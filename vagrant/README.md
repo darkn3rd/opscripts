@@ -13,19 +13,25 @@ You will need to fetch VirtualBox and Vagrant before running these instructions:
 
 1. Create a local directory for our puppet-dev environment
 
- ```mkdir ~/puppet-dev```
+ ```Shell
+ mkdir ~/puppet-dev
+ ```
 
 2. Copy Vagrantfile from opscripts to local puppet-dev
 
- ```cp /path/to/opscripts/vagrant/Vagrantfile.prd_local.rb ~/puppet-dev/Vagrantfile```
+ ```Shell
+ cp /path/to/opscripts/vagrant/Vagrantfile.prd_local.rb ~/puppet-dev/Vagrantfile
+ ```
 
 3. Create a local link in your vagrant directoy to contoso-puppet repo.
 
- ```ln -s /path/to/contoso-puppet ~/puppet-dev/to/contoso-puppet```
+ ```Shell
+ ln -s /path/to/contoso-puppet ~/puppet-dev/to/contoso-puppet
+ ```
 
 4. Create local manifests
 
- ```Bash
+ ```Shell
  # copy from opscripts or create your own
  mkdir ~/vagrant_manifests
  cp /path/to/opscripts/vagrant/manifests/* ~/vagrant_manifests
@@ -40,7 +46,7 @@ The Vagrantfile configured a hostname, which is currently set to "mynode".  This
 
 6. Launch and Provision
 
-  ```Bash
+  ```Shell
   # type this in your ~/puppet-dev directory
   vagrant up
   vagrant ssh
@@ -50,7 +56,9 @@ The Vagrantfile configured a hostname, which is currently set to "mynode".  This
 
  Once you make code changes, you can test them out by doing the following:
 
-  ```vagrant provision```
+  ```Shell
+  vagrant provision
+  ```
 
 8. Root vs. Vagrant
 
@@ -65,8 +73,12 @@ The Vagrantfile configured a hostname, which is currently set to "mynode".  This
 
  With the default back to vagrant/vagrant, you can use the command:
 
-   ```vagrant ssh```
+   ```Shell
+   vagrant ssh
+   ```
 
  This command will do the equivelent of the following:
 
-   ```ssh -i $(vagrant ssh-config | grep IdentityFile  | awk '{print $2}') -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 127.0.0.1```
+   ```Shell
+   ssh -i $(vagrant ssh-config | grep IdentityFile  | awk '{print $2}') -l root -p 2222 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no 127.0.0.1
+   ```
