@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/jmenchaca/workarea/puppet/modules/site/sitefiles/files/dhcp'
+let g:netrw_dirhist_2='/Users/jmenchaca/.rvm/gems/ruby-2.0.0-p247@cws/gems/capistrano-2.14.2/lib/capistrano'
+let g:netrw_dirhist_3='/Users/jmenchaca/.rvm/gems/ruby-2.0.0-p247@cws/gems/capistrano-2.14.2/lib/capistrano/ext'
+let g:netrw_dirhist_4='/Users/jmenchaca/.rvm/gems/ruby-2.0.0-p247@cws/gems/capistrano-2.14.2/lib/capistrano'
+let g:netrw_dirhist_5='/Users/jmenchaca/workarea/Neptune'
+let g:netrw_dirhist_6='/Users/jmenchaca/workarea'
+let g:netrw_dirhist_7='/Users/jmenchaca/workarea/oceans-puppet/environment/production/modules/postgresql'
+let g:netrw_dirhist_8='/Users/jmenchaca/workarea/puppet'
