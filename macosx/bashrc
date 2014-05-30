@@ -1,0 +1,8 @@
+# Mac Color
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Highlight Function - Cannot Get to Work
+function highlight { 
+  local MATCH="$1";shift;egrep --color "$MATCH|$" "$@" 
+}
