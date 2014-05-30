@@ -1,3 +1,5 @@
+# rename file to .gitconfig and put in $HOME
+# rename values as apporpriate
 [user]
 	name = John Smith
 	email = jsmith@smith.com
