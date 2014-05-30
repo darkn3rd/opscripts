@@ -25,12 +25,14 @@ You will need to fetch VirtualBox and Vagrant before running these instructions:
 
 4. Create local manifests
 
- ```# copy from opscripts or create your own
+ ```Bash
+ # copy from opscripts or create your own
  mkdir ~/vagrant_manifests
  cp /path/to/opscripts/vagrant/manifests/* ~/vagrant_manifests
 
  # make local link
- ln -s ~/vagrant_manifests ~/puppet-dev/local_manifests```
+ ln -s ~/vagrant_manifests ~/puppet-dev/local_manifests
+ ```
 
 5. Edit Node
 
@@ -38,9 +40,11 @@ The Vagrantfile configured a hostname, which is currently set to "mynode".  This
 
 6. Launch and Provision
 
-  ```# type this in your ~/puppet-dev directory
+  ```Bash
+  # type this in your ~/puppet-dev directory
   vagrant up
-  vagrant ssh```
+  vagrant ssh
+  ```
 
 7. Provision Again as needed
 
@@ -54,8 +58,10 @@ The Vagrantfile configured a hostname, which is currently set to "mynode".  This
 
  These are the two lines that can be commented out:
 
-   ```config.ssh.username = "root"
-   config.ssh.password = "vagrant"```
+   ```Ruby
+   config.ssh.username = "root"
+   config.ssh.password = "vagrant"
+   ```
 
  With the default back to vagrant/vagrant, you can use the command:
 
