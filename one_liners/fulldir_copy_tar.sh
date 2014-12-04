@@ -1,0 +1,1 @@
+tarj -C ${SRCDIR} -cf - . | tar -C ${DESTDIR} -xf-

@@ -1,0 +1,1 @@
+rsync -auHS ${SRCDIR} ${DESTDIR}

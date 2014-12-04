@@ -1,0 +1,1 @@
+cp -Rp ${SRCDIR} ${DESTDIR}
