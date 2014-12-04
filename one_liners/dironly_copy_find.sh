@@ -1,0 +1,1 @@
+find ${SRCDIR} -type d -depth -print0 | cpio -0pvmud ${DESTDIR}
