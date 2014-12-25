@@ -1,2 +1,2 @@
 #!/bin/sh
-for FILE in *.groovy; do sed -E 's:^#!/usr/bin/groovy$:#!/usr/bin/env groovy:' $FILE > tmp; mv tmp $FILE; done 
+for FILE in *.py; do sed -i '1c #!/usr/bin/env python' ${FILE}; done
