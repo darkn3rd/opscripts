@@ -1,8 +1,7 @@
 # Mac Color
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
+[[ -s ~/.profile ]] && source "~/.profile"
 
 # Highlight Function - Cannot Get to Work
-function highlight { 
-  local MATCH="$1";shift;egrep --color "$MATCH|$" "$@" 
+function highlight {
+  local MATCH="$1";shift;egrep --color "$MATCH|$" "$@"
 }
