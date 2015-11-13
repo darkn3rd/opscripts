@@ -1,0 +1,471 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""  VIMRC
+""
+"" Gavino Felix <gavinofelix@gmail.com>
+""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" hack to get vim python working on my mac
+"let $PYTHONHOME='/System/Library/Frameworks/Python.framework/Versions/2.7'
+
+" No VI-Compatible
+set nocompatible
+
+" Syntax On
+syntax on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle Setup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" For updates do
+"   :PluginUpdate
+
+" Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle..."
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    let iCanHazVundle=0
+endif
+
+" Required for Vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+" Required!
+Bundle 'gmarik/vundle'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle Pakages
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Bundle 'Lokaltog/powerline'
+"Bundle 'airblade/vim-gitgutter'
+"Bundle 'Shougo/unite.vim'
+"Bundle 'rosenfeld/conque-term'
+"Bundle 'vim-scripts/utl.vim'
+Bundle 'elzr/vim-json'
+Bundle 'edkolev/tmuxline.vim'
+Bundle 'tpope/vim-dispatch'
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'majutsushi/tagbar'
+Bundle 'scrooloose/syntastic'
+Bundle 'fs111/pydoc.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'derekwyatt/vim-sbt'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'sjl/gundo.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Townk/vim-autoclose'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'pangloss/vim-javascript'
+Bundle 'wookiehangover/jshint.vim'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-commentary'
+Bundle 'ervandew/supertab'
+Bundle 'saltstack/salt-vim'
+Bundle 'dln/avro-vim'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'rodjek/vim-puppet'
+Bundle 'gregsexton/gitv'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
+Bundle 'hdima/python-syntax'
+Bundle 'benmills/vimux'
+Bundle 'chase/vim-ansible-yaml'
+"Bundle 'freeo/vim-kalisi'
+
+" Installing plugins the first time
+if iCanHazVundle == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    :BundleInstall
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle Pakages
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Allow plugins by file type
+filetype on
+filetype plugin on
+filetype indent on
+
+" Tabs and spaces handling
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+" Highlight currentline
+set cursorline
+
+" Highlight column 80
+"set cursorcolumn
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+
+" Natural split opening
+set splitbelow
+set splitright
+
+" Edit buffers that aren't visible
+set hidden
+
+" When scrolling, keep cursor 3 lines away from screen border
+set scrolloff=3
+
+" Wild ignore
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+
+" Show a navigable menu for tab completion
+set wildmenu
+
+" Autocompletion of files and commands behaves like shell
+" (complete only the common part, list the options that match)
+set wildmode=longest,list:longest,full
+
+" Highlighted search results
+set hlsearch
+
+" Setting for hdima/python-syntax
+let python_highlight_all = 1
+
+" Fix to let ESC work as espected with Autoclose plugin
+let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}"
+
+" Save file and execute
+autocmd FileType python map <buffer> <S-e> :w<cr>:!/opt/local/bin/python2.6 %<cr>
+
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" Term settings
+set encoding=utf-8 " needed to show unicode glyphs
+set laststatus=2 " always show the status line
+set termencoding=utf-8
+set fileencodings=
+set fillchars+=stl:\ ,stlnc:\
+set nocompatible
+set t_Co=256
+set noshowmode
+set term=xterm-256color
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set rtp+=/Users/gfelix/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_symbols = 'unicode'
+"let g:Powerline_symbols = 'fancy'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NerdTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" t: Open the selected file in a new tab
+" i: Open the selected file in a horizontal split window
+" s: Open the selected file in a vertical split window
+" I: Toggle hidden files
+" m: Show the NERD Tree menu
+" R: Refresh the tree, useful if files change outside of Vim
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$', '\.svn$', '\.git$']
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=1
+let NERDTreeMapActivateNode=1
+let NERDTreeMinimalUI=0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MiniBuffer Explorer
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set setting for Solarized colorscheme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('gui_running')
+  set guifont=Monaco\ for\ Powerline
+  set background=light
+  set guioptions=egmrt
+  set transparency=5
+else
+  set background=dark
+endif
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+colorscheme solarized
+
+"colorscheme kalisi
+"set background=light
+" OR
+"set background=dark
+" If you don't set the background, the light theme will be used
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='âœ—'
+let g:syntastic_warning_symbol='âš '
+let g:syntastic_enable_balloons = 1
+let g:syntastic_auto_loc_list = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Change default from flake8 to plyflakes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" disable pylint, it seems to hate the way i name things
+let g:loaded_syntastic_python_pylint_checker=0
+
+" for flake8
+let syntastic_python_flake8_args='--ignore=E501,W291,E225,W293,E128,E231,E302,E121,E222,E303,E203,E241,W0312,C0103,C0111,W391'
+"  E501    line to long > 80
+"  W291    trailing white space
+"  W293    blank line contains whitespace
+"  E203    whitespace before 'FOO'
+"  E241    whitespace after 'FOO'
+"  E128    continuation line under-indented for visual ident
+"  E225    missing whitespace around operator
+"  E231    missing whitespace after ','
+"  E302    expected 2 blank lines, found 0
+"  E121    continuation line indenation is not a multiple of four
+"  E222    multiple spaces after operator
+"  E303    too many blank lines
+"  W0312   tabs instead of spaces :(
+"  W391    blank line at end of file
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fugitive
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd QuickFixCmdPost *grep* cwindow
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TagBar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_left = 1
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_autocompact = 1
+let g:tagbar_ctags_bin = '/opt/local/bin/ctags'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Supertab
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = "context""
+"let g:SuperTabDefaultCompletionTypeDiscovery = [
+"\ "&completefunc:<c-x><c-u>",
+"\ "&omnifunc:<c-x><c-o>",
+"\ ]
+let g:SuperTabLongestHighlight = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jedi
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jedi#popup_on_dot = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Omni Completion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Have PyDoc Disappear
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_match_window = 'order:ttb,max:20'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-Indent-Guides
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey guibg=darkgrey
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GitGutter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:gitgutter_enabled = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Avro
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufRead,BufNewFile *.avdl setlocal filetype=avro-idl
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"let g:airline_theme='kalisi'
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_symbols.paste = 'Ï'
+"let g:airline_symbols.paste = 'Ãž'
+"let g:airline_symbols.paste = 'âˆ¥'
+
+let g:airline_symbols.whitespace = 'Îž'
+
+let g:airline_powerline_fonts=1
+
+" Unicode symbols
+let g:airline_left_sep = 'Â»'
+let g:airline_left_sep = 'â–¶'
+let g:airline_right_sep = 'Â«'
+let g:airline_right_sep = 'â—€'
+let g:airline_symbols.linenr = 'âŠ'
+let g:airline_symbols.linenr = 'â¤'
+let g:airline_symbols.linenr = 'Â¶'
+let g:airline_symbols.branch = 'âŽ‡'
+
+" Powerline symbols
+"let g:airline_left_sep = 'î‚°'
+"let g:airline_left_alt_sep = 'î‚±'
+"let g:airline_right_sep = 'î‚²'
+"let g:airline_right_alt_sep = 'î‚³'
+"let g:airline_symbols.branch = 'î‚ '
+"let g:airline_symbols.readonly = 'î‚¢'
+"let g:airline_symbols.linenr = 'î‚¡'
+
+" Old vim-powerline symbols
+"let g:airline_left_sep = 'â®€'
+"let g:airline_left_alt_sep = 'â®'
+"let g:airline_right_sep = 'â®‚'
+"let g:airline_right_alt_sep = 'â®ƒ'
+"let g:airline_symbols.branch = 'â­ '
+"let g:airline_symbols.readonly = 'â­¤'
+"let g:airline_symbols.linenr = 'â­¡'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight spaces items over 80 chars
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+highlight ExtraWhitespace ctermbg=darkgrey guibg=darkgrey
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctags
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim -t <tag name> to open vim straight on the tag
+" Ctrl+] to jump to tag when over a word
+" Ctrl+T to pop back
+" :tselect or :stselect to open
+" :tnext, :tprev to go to next/prev tag finding
+" :help tags for more :)
+"
+" ctags --list-kinds=python
+set tags+=./ctags
+set tags+=../ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Web/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/AWS/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/GAE/pulsecontentserver/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/GAE/pulsegatekeeper/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/GAE/pulseipadapp/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/GAE/pulsenewsapp/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/GAE/pulseparser/ctags
+set tags+=/Users/gfelix/src.pulse/Pulse-Backend/GAE/pulsesubscriber/ctags
+
+"nnoremap <F9> :!ctags -R --python-kinds=-i .<CR>
+nnoremap <F9> :!ctags -R .<CR>
+nnoremap <C-]> :execute 'tj' expand('<cword>')<CR>zv
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Go
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set runtimepath+=$GOROOT/misc/vim
+au BufRead,BufNewFile *.go set filetype=go
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UTL
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:utl_cfg_hdl_scm_http_system = "silent !open -a firefox %u &"
+let g:utl_cfg_hdl_mt_application_pdf = 'silent :!open -a Preview %p &'
+let g:utl_cfg_hdl_mt_image_jpeg = 'silent :!open -a Preview %p &'
+let g:utl_cfg_hdl_mt_image_gif = 'silent :!open -a Preview %p &'
+let g:utl_cfg_hdl_mt_image_png = 'silent :!open -a Preview %p &'
+let g:utl_cfg_hdl_mt_generic =  'silent :!open -a Preview %p &'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keyboard Shortcuts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set leader to comma
+let mapleader = ','
+
+" Split Window Management
+"    ,ws      Create horizontal split.
+"    ,wv      Create vertical split.
+"    ,wq      Close split window.
+nnoremap <leader>w <C-w>
+
+" Comma Comma to go to next window
+"     ,,       Switch between windows.
+nnoremap <leader><leader> <C-w><C-w>
+
+" Window Navigation
+"   Use ctrl + h to move left window
+"   Use ctrl + j to move down window
+"   Use ctrl + k to move up window
+"   Use ctrl + l to move right window
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+" Misc mappings
+nmap <leader>b :CtrlPBuffer<CR>
+nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>e :Errors<CR>
+nmap <leader>t :CtrlP<CR>
+nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR><CR>
+nmap <leader>] :TagbarToggle<CR>
+nmap <leader><space> :call whitespace#strip_trailing()<CR>
+nmap <leader>G :GundoToggle<CR>
+nmap <Leader>vp :VimuxPromptCommand<CR>
+nmap <Leader>vl :VimuxRunLastCommand<CR>
+"map <Leader>j :Utl <CR><Bar>:redraw!<CR>
+set pastetoggle=<leader>p
+
