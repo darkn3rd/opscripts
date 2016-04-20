@@ -1,0 +1,21 @@
+# Got GNU?
+brew 'gnu-sed', args: ['with-default-names']
+brew 'gawk'
+brew 'coreutils'
+brew 'findutils', args: ['with-default-names']
+
+# Why are these not there?
+brew 'tree'
+brew 'wget'
+brew 'git'
+brew 'gpg'
+
+# Dupes
+tap 'homebrew/dupes'
+brew 'tcl-tk'   # Keg Only
+
+# Essential Languages
+brew 'python'
+brew 'ruby'
+brew 'perl'     # Keg Only
+brew 'node'
