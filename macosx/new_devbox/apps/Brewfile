@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 cask_args appdir: '/Applications'
 cask 'firefox'        # browser
 cask 'google-chrome'  # browser
@@ -6,4 +9,4 @@ cask 'lastpass'       # security
 cask 'spotify'        # music
 cask 'slack'          # communication
 cask 'steam'          # games
-cask 'xquartz' 
+cask 'xquartz'

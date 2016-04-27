@@ -1,8 +1,12 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 # Got GNU?
-brew 'gnu-sed', args: ['with-default-names']
-brew 'gawk'
+brew 'gnu-sed', args: ['with-default-names']    # GNU Sed (BSD Sed sucks)
+brew 'gawk'                                     # GNU Awk (BSD Awk sucks)
 brew 'coreutils'
 brew 'findutils', args: ['with-default-names']
+brew 'bash'                                     # Bash v4 (Bash v3 = old)
 
 # Why are these not there?
 brew 'tree'
@@ -12,10 +16,23 @@ brew 'gpg'
 
 # Dupes
 tap 'homebrew/dupes'
-brew 'tcl-tk'   # Keg Only
+brew 'tcl-tk'           # Keg Only
 
 # Essential Languages
-brew 'python'
-brew 'ruby'
-brew 'perl'     # Keg Only
-brew 'node'
+brew 'python'           # Python 2.x
+brew 'ruby'             # Ruby
+brew 'perl'             # Note: Keg Only
+brew 'node'             # NodeJS
+
+# Java
+cask 'java' unless system '/usr/libexec/java_home --failfast'
+brew 'maven'            # Maven Build Tools
+brew 'groovy'
+
+# JavaScripts
+brew 'spidermonkey'     # Mozilla JavaScript Engine
+brew 'rhino'            # Mozilla JavaScript Engine (Java)
+brew 'v8'               # Google JavaScript Engine
+
+# Miscellaneous
+brew 'sqlite3'
