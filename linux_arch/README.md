@@ -1,5 +1,9 @@
 # **Notes for Arch (LSB 1.4)**
 
+I am evaluating [Apricity](https://apricityos.com/) on ASUS ZenBook UX305.  Apricity distro is based on [Arch Linux](https://www.archlinux.org/).
+
+![Apricity](images/apricity-laptop.png)
+
 ## **Base Versions**
 
 * Scripting Engines
@@ -24,7 +28,7 @@
 
 ### **Ansible**
 
-**Requirement:**: Python 2 Environment
+**Requirement:**: Python 2 Environment (installed with pacman)
 
 ```bash
 sudo pacman -S ansible
@@ -50,7 +54,9 @@ See: https://docs.docker.com/engine/installation/linux/archlinux/
 
 ```bash
 # Install
-sudo pacman -Sy virtualbox-host-modules-arch virtualbox vagrant
+sudo pacman -S virtualbox-host-modules-arch
+sudo pacman -S virtualbox
+sudo pacman -S vagrant
 sudo modprobe vboxdrv
 # Post install
 sudo usermod -aG vboxusers ${USER}

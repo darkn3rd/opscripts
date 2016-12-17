@@ -1,5 +1,8 @@
 # **Notes for Ubuntu 16.04 Xenial**
 
+I was evaluating Kubuntu 16.04 on Asus Zenbook UX305 to see how this works out.
+
+
 ## **Base Versions**
 
 * Scripting Engines
