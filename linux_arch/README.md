@@ -5,6 +5,7 @@
 * Scripting Engines
     * Python2 2.7.12
     * Python 3.5.2 (`python`)
+        * Pip 8.1.2 for python 3
     * Perl 5.24.0
     * Bash 4.4.5
     * Zsh 5.2
@@ -20,23 +21,6 @@
     * GNU findutils 4.6.0 - find
 
 ## **Applications, Tools, and Environments**
-
-### **Python 2 Environment**
-
-Steps to install basic Python environment (minimalist path).
-```bash
-sudo apt install python-setuptools
-sudo easy_install pip
-sudo -H pip install --upgrade pip setuptools
-sudo -H pip install virtualenvwrapper
-```
-### **Python 3 Environment**
-
-```bash
-sudo apt install -y python3-setuptools
-sudo -H easy_install3 pip
-sudo -H pip3 install --upgrade pip setuptools wheel
-```
 
 ### **Ansible**
 
