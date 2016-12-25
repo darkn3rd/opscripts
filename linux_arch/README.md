@@ -26,6 +26,16 @@ I am evaluating [Apricity](https://apricityos.com/) on ASUS ZenBook UX305.  Apri
 
 ## **Applications, Tools, and Environments**
 
+### **Perl**
+
+```bash
+# install package manager wrapper
+sudo pacman -S cpanminus
+# install perl modules
+cpanm YAML::XS
+```
+
+
 ### **Ansible**
 
 **Requirement:**: Python 2 Environment (installed with pacman)
