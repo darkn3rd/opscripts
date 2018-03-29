@@ -1,8 +1,8 @@
 # rename file to .gitconfig and put in $HOME
 # rename values as apporpriate
 [user]
-	name = Joaquin Menchaca
-	email = joaquin.menchaca@appdynamics.com
+	name = name
+	email = email
 [branch]
 		autosetuprebase = always
 [log]
